@@ -152,6 +152,9 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(STORAGE_KEY, locale);
       document.documentElement.lang = locale;
+      // Mantener `translate="no"` aunque cambie el lang — evita que Chrome
+      // Translate intervenga el DOM y rompa React (removeChild bug clásico).
+      document.documentElement.setAttribute("translate", "no");
     }
   }, [locale]);
 
