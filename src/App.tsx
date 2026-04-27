@@ -15,6 +15,7 @@ import {
   Wind,
   Wrench,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { SplashScreen } from "@/components/splash-screen";
@@ -247,6 +248,7 @@ export default function App() {
 
       <CommandPalette actions={commands} />
       <ToastViewport />
+      <Analytics />
     </div>
   );
 }
